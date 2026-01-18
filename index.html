@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TemporaryMail</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="p-4">
+
+    <div id="toastContainer" class="fixed bottom-10 right-10 z-50 flex flex-col gap-2"></div>
+
+    <div class="max-w-6xl mx-auto w-full h-full flex flex-col">
+        <header class="flex justify-between items-center mb-4 flex-shrink-0">
+            <h1 class="text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                TemporaryMail</h1>
+            <div class="flex items-center gap-4">
+                <div id="countdown" class="text-lg font-mono font-bold text-blue-400">10:00</div>
+                <div class="w-20 h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                    <div id="timerBar" class="h-full bg-blue-500 transition-all duration-1000"></div>
+                </div>
+            </div>
+        </header>
+
+        <div class="flex flex-col lg:flex-row gap-4 flex-grow overflow-hidden mb-4">
+            <aside class="lg:w-1/4 flex flex-col gap-4 flex-shrink-0">
+                <div class="glass rounded-xl p-4">
+                    <input id="emailAddr" readonly
+                        class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-[11px] font-mono text-blue-300 mb-3 outline-none">
+                    <div class="grid grid-cols-3 gap-2">
+                        <button onclick="copyEmail()"
+                            class="bg-blue-600 hover:bg-blue-500 py-2 rounded-lg text-[10px] font-bold uppercase transition">Copy</button>
+                        <button onclick="changeEmail()"
+                            class="bg-slate-700 hover:bg-slate-600 py-2 rounded-lg text-[10px] font-bold uppercase transition">New
+                            Email</button>
+                        <button onclick="extendTime()"
+                            class="bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-600/40 py-2 rounded-lg text-[10px] font-bold uppercase transition">Extend Time</button>
+                    </div>
+                </div>
+                <div class="glass rounded-xl flex-grow overflow-hidden flex flex-col">
+                    <div id="mailList" class="flex-grow overflow-y-auto p-2 space-y-2 bg-slate-900/10">
+                        <div class="text-center py-10 text-slate-700 text-[10px]">No messages</div>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="lg:w-3/4 glass rounded-xl flex flex-col overflow-hidden relative">
+                <div id="mailHeader"
+                    class="px-5 py-3 border-b border-slate-800 bg-slate-900/40 hidden flex justify-between items-center">
+                    <div>
+                        <p id="senderInfo" class="text-[10px] text-slate-500"></p>
+                        <h2 id="subjectTitle" class="font-bold text-sm truncate text-white"></h2>
+                    </div>
+                    <button onclick="closeMail()" class="text-slate-500 hover:text-white text-xl px-2">×</button>
+                </div>
+                <div id="mailBody" class="flex-grow overflow-y-auto p-5 text-slate-300 text-sm">
+                    <div class="h-full flex items-center justify-center text-slate-700 italic">Select an email to read
+                    </div>
+                </div>
+                <div id="attachmentArea"
+                    class="hidden p-3 border-t border-slate-800 bg-slate-900/60 flex flex-wrap gap-2"></div>
+            </section>
+        </div>
+
+        <footer class="flex-shrink-0 py-2 text-center border-t border-slate-800/50">
+            <p class="text-[10px] text-slate-500 tracking-wide uppercase">
+                Developed by <span class="text-blue-400 font-semibold">Farid Humbatov</span> &copy; 2026. All Rights
+                Reserved.
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

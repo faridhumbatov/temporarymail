@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0b101a;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.glass {
+    background: rgba(22, 30, 48, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.toast {
+    animation: slideIn 0.3s ease-out forwards;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-out {
+    opacity: 0;
+    transform: translateX(20px);
+    pointer-events: none;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+header,
+footer,
+button,
+#mailList {
+    user-select: none;
+}
